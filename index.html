@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <form class="add-studet" action="#" method="post">
+    <input class="add-student__input" id="name" type="text" name="fistName" placeholder="First name">
+    <input class="add-student__input" id="surname" type="text" name="lastName" placeholder="Last name">
+    <input class="add-student__input" id="age" type="number" name="age" placeholder="Age">
+    <button type="submit">Submit</button>
+  </form>
+
+
+  <ul class="students">
+    <li class="students__item">
+      <h3 class="students__item-heading">Name Surname</h3>
+      <strong class="students__item-age">Age</strong>
+      <button class="students__item-edit">edit</button>
+    </li>
+  </ul>
+
+  <template id="student-temp">
+    <li class="students__item">
+      <p class="students__id">id</p>
+      <h3 class="students__item-heading">Name Surname</h3>
+      <strong class="students__item-age">Age</strong>
+      <button class="students__item-edit">edit</button>
+      <button class="students__item-delete">delete</button>
+    </li>
+  </template>
+
+  <!-- MODAL -->
+  <div class="edit-student">
+    <div class="edit-student__dialog">
+      <form class="edit-student-form" action="#" method="post">
+        <input class="edit-student__input" id="edit-name" type="text" name="fistName" placeholder="First name">
+        <input class="edit-student__input" id="edit-surname" type="text" name="lastName" placeholder="Last name">
+        <input class="edit-student__input" id="edit-age" type="number" name="age" placeholder="Age">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
