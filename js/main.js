@@ -13,7 +13,6 @@ const elEditName = selectElement("#edit-name", elEditModal)
 const elEditSurname = selectElement("#edit-surname", elEditModal)
 const elEditAge = selectElement("#edit-age", elEditModal)
 
-
 //  FUNCTIONS
 
 // RENDER
@@ -35,7 +34,6 @@ function renderStudents(students, element){
 async function getStudents() {
   const res = await fetch('https://student-express.herokuapp.com/site/student')
   const stData = await res.json()
-  console.log(stData.message);
   renderStudents(stData.message, elStudentsList)
 }
 
@@ -69,8 +67,6 @@ async function editStudent(id, name, lastName, age){
       age: age
     })
   })
-
-  console.log(await res.json());
   getStudents()
 }
 
@@ -97,22 +93,17 @@ elUsers.addEventListener('click', (e) => {
   
   if(e.target.matches('.students__item-edit')) {
     elEditModal.classList.add('edit-student--open')
-    console.log(e.target.closest(".students__item").dataset.id);
     const currentStId = e.target.closest(".students__item").dataset.id
     function editEvent(e) {
       e.preventDefault()
-      console.log(e.target);
-      console.log(currentStId);
       editStudent(currentStId, elEditName.value.trim(), elEditSurname.value.trim(), elEditAge.value.trim())
       
       elEditModal.classList.remove('edit-student--open')
     }
     elEditForm.addEventListener('submit', editEvent)
-    
   }
   else if(e.target.matches(".students__item-delete")){
     const currentStId = e.target.closest(".students__item").dataset.id
-    console.log(currentStId);
     deleteStudent(currentStId)
   }
 })
